@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import * as todoActions from '../../actions/todoActions';
 
@@ -8,16 +8,17 @@ class Todo extends React.Component {
   }
 
   addTodo(task) {
-    console.log(task);
+    this.props.createTask(task);
   }
 
   render () {
+    let task;
     return (
       <div>
         <h2>Tasks</h2>
         <ul>
           {this.props.tasks.map((task, index) => {
-            <li key={index}>{task.title}</li>
+            return <li key={index}>{task.title}</li>
           })}
         </ul>
         <div>
@@ -33,7 +34,7 @@ class Todo extends React.Component {
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -41,14 +42,14 @@ class Todo extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     tasks: state.tasks
-  }
+  };
 };
 
-// Maps actions to props
+// Maps actions to props`
 const mapDispatchToProps = (dispatch) => {
   return {
-    createTask: task => dispatch(taskActions.createTask(task))
-  }
+    createTask: task => dispatch(todoActions.createTask(task))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todo);

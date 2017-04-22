@@ -6,7 +6,7 @@ import App from './components/App';
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={Home}></IndexRoute>
-    <Route path="/todos" component={Todo}></Route>
+    <IndexRoute component={Home} />
+    <Route path="/todos" component={Todo} />
   </Route>
-)
+);
