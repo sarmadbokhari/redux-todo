@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 const App = (props) => {
   return (
     <div className="container">
-      <div className="navbar navbar-default">
+      <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
             <a href="#" className="navbar-brand">Redux Todo App</a>
@@ -20,7 +20,8 @@ const App = (props) => {
             </ul>
           </div>
         </div>
-      </div>
+      </nav>
+      {props.children}
     </div>
   )
 }
