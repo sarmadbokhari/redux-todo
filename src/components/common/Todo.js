@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes } from 'react';
+import {connect} from 'react-redux';
+import * as todoActions from '../../actions/todoActions';
 
 class Todo extends React.Component {
   constructor(props) {
@@ -35,4 +37,18 @@ class Todo extends React.Component {
   }
 }
 
-export default Todo;
+// Maps state from store to props
+const mapStateToProps = (state, ownProps) => {
+  return {
+    tasks: state.tasks
+  }
+};
+
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createTask: task => dispatch(taskActions.createTask(task))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Todo);
