@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-class Book extends React.Component {
+class Todo extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -35,4 +35,4 @@ class Book extends React.Component {
   }
 }
 
-export default Book;
+export default Todo;
