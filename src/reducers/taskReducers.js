@@ -9,11 +9,10 @@ export default (state = [], action) => {
     case 'COPY_TASK': {
       let copyTask = Object.assign({}, action.task);
       copyTask.title = 'Copy ' + copyTask.title;
-      debugger;
       return [
         ...state,
         copyTask
-      ]
+      ];
     }
     case 'DELETE_TASK': {
       const newState = Object.assign([], state);

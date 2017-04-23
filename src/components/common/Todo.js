@@ -5,11 +5,11 @@ import Task from './Task';
 
 class Todo extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       activeTask: null
-    }
+    };
   }
 
   addTodo(task) {
@@ -35,7 +35,6 @@ class Todo extends React.Component {
 
   render () {
     let task;
-    let newTitle;
     return (
       <div>
         <h2>Tasks</h2>
@@ -76,8 +75,7 @@ const mapDispatchToProps = (dispatch) => {
     createTask: task => dispatch(todoActions.createTask(task)),
     deleteTask: task => dispatch(todoActions.deleteTask(task)),
     copyTask: task => dispatch(todoActions.copyTask(task)),
-    editTask: task => dispatch(todoActions.editTask(task)),
-    initEditTask: task => dispatch(todoActions.initEditTask(task))
+    editTask: task => dispatch(todoActions.editTask(task))
   };
 };
 
