@@ -4,3 +4,10 @@ export const createTask = (task) => {
     task: task
   }
 }
+
+export const deleteTask = (task) => {
+  return {
+    type: 'DELETE_TASK',
+    task: task
+  }
+}

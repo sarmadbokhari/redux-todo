@@ -11,6 +11,10 @@ class Todo extends React.Component {
     this.props.createTask(task);
   }
 
+  deleteTask(task) {
+    this.props.deleteTask(task);
+  }
+
   render () {
     let task;
     return (
@@ -18,7 +22,11 @@ class Todo extends React.Component {
         <h2>Tasks</h2>
         <ul>
           {this.props.tasks.map((task, index) => {
-            return <li key={index}>{task.title}</li>
+            return (
+              <li key={index}>
+                <p>{task.title} || <a onClick={() => this.deleteTask(task)}>(Delete)</a></p>
+              </li>
+            )
           })}
         </ul>
         <div>
@@ -48,7 +56,8 @@ const mapStateToProps = (state, ownProps) => {
 // Maps actions to props`
 const mapDispatchToProps = (dispatch) => {
   return {
-    createTask: task => dispatch(todoActions.createTask(task))
+    createTask: task => dispatch(todoActions.createTask(task)),
+    deleteTask: task => dispatch(todoActions.deleteTask(task))
   };
 };
 
