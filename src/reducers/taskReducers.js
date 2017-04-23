@@ -6,6 +6,15 @@ export default (state = [], action) => {
         Object.assign({}, action.task)
       ];
     }
+    case 'COPY_TASK': {
+      let copyTask = Object.assign({}, action.task);
+      copyTask.title = 'Copy ' + copyTask.title;
+      debugger;
+      return [
+        ...state,
+        copyTask
+      ]
+    }
     case 'DELETE_TASK': {
       const newState = Object.assign([], state);
       const indexOfTask = state.findIndex(task => {

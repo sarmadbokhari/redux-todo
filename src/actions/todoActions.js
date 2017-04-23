@@ -11,3 +11,10 @@ export const deleteTask = (task) => {
     task: task
   };
 };
+
+export const copyTask = (task) => {
+  return {
+    type: 'COPY_TASK',
+    task: task
+  }
+}
