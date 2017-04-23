@@ -18,3 +18,11 @@ export const copyTask = (task) => {
     task: task
   }
 }
+
+export const updateTask = (newTask, index) => {
+  return {
+    type: 'UPDATE_TASK',
+    index: index,
+    newTask: newTask
+  }
+}

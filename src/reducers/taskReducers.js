@@ -18,9 +18,17 @@ export default (state = [], action) => {
     case 'DELETE_TASK': {
       const newState = Object.assign([], state);
       const indexOfTask = state.findIndex(task => {
-        return task.title === action.task.title
-      })
+        return task.title === action.task.title;
+      });
       newState.splice(indexOfTask, 1);
+      return newState;
+    }
+    case 'UPDATE_TASK': {
+      const newState = [
+        ...state
+      ];
+      Object.assign(newState[action.index], action.newTask);
+
       return newState;
     }
     default: {
